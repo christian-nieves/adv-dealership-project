@@ -40,7 +40,7 @@ public class SalesContract extends Contract {
     @Override
     public double getTotalPrice() {
        return getVehicle().getPrice() + salesTaxAmount + recordingFee + processingFee;
-    }
+    } // returns total costs including tax and fees
 
     @Override
     public double getMonthlyPayment() {
