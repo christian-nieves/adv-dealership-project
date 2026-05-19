@@ -45,4 +45,8 @@ public class Contract {
         this.vehicle = vehicle;
     }
 
+    public abstract double getTotalPrice();
+    public abstract double getMonthlyPayment();
 }
+
+
