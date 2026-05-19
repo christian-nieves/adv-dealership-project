@@ -6,6 +6,7 @@ public class Contract {
     private String customerEmail;
     private Vehicle vehicle;
 
+    // Constructor
     public Contract(String date, String customerName, String customerEmail, Vehicle vehicle) {
         this.date = date;
         this.customerName = customerName;
@@ -13,6 +14,7 @@ public class Contract {
         this.vehicle = vehicle;
     }
 
+    // Getters and Setters
     public String getDate() {
         return date;
     }
@@ -45,6 +47,7 @@ public class Contract {
         this.vehicle = vehicle;
     }
 
+    // Methods
     public abstract double getTotalPrice();
     public abstract double getMonthlyPayment();
 }
