@@ -13,4 +13,24 @@ public class SalesContract extends Contract {
         this.processingFee = vehicle.getPrice() < 10000 ? 295.00 : 495.00; // if the vehicle price is under 10k the fee is 295, if not it's 495
         this.financeOption = financeOption;
     }
+
+    public double getSalesTaxAmount() {
+        return salesTaxAmount;
+    }
+
+    public double getRecordingFee() {
+        return recordingFee;
+    }
+
+    public double getProcessingFee() {
+        return processingFee;
+    }
+
+    public boolean isFinanceOption() {
+        return financeOption;
+    }
+
+    public void setFinanceOption(boolean financeOption) {
+        this.financeOption = financeOption;
+    }
 }
