@@ -40,6 +40,19 @@ Follow these steps to get your application running within IntelliJ IDEA:
 ## Demo
 
 
+![SS1.png](Pictures/SS1.png)
+![SS2.png](Pictures/SS2.png)
+![SS3.png](Pictures/SS3.png)
+![SS4.png](Pictures/SS4.png)
+![SS5.png](Pictures/SS5.png)
+![SS6.png](Pictures/SS6.png)
+![SS7.png](Pictures/SS7.png)
+![SS8.png](Pictures/SS8.png)
+![SS9.png](Pictures/SS9.png)
+![SS10.png](Pictures/SS10.png)
+![SS11.png](Pictures/SS11.png)
+![SS12.png](Pictures/SS12.png)
+![SS13.png](Pictures/SS13.png)
 
 
 ## Future Work
