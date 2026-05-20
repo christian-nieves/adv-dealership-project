@@ -123,6 +123,20 @@ public class UserInterface {
         }
 
         if (contract != null) {
+            // Contract summary / receipt
+            System.out.println("\n===== Contract Summary =====");
+            System.out.println("Customer: " + customerName);
+            System.out.println("Email: " + customerEmail);
+            System.out.println("Vehicle: " + vehicle.getYear() + " " + vehicle.getMake() + " " + vehicle.getModel());
+            System.out.printf("Total Price: $%,.2f%n", contract.getTotalPrice());
+
+            if (contract.getMonthlyPayment() > 0) { // only show if financing or leasing
+                System.out.printf("Monthly Payment: $%,.2f%n", contract.getMonthlyPayment());
+            } else {
+                System.out.println("Car was paid in full!");
+            }
+            System.out.println("============================\n");
+
             ContractDataManager contractDataManager = new ContractDataManager();
             contractDataManager.saveContract(contract); // saves contract to file
             dealership.removeVehicle(vehicle); // removes vehicle from inventory

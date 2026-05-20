@@ -44,26 +44,18 @@ public class SalesContract extends Contract {
 
     @Override
     public double getMonthlyPayment() {
-        if (!financeOption) return 0;
+        if (!financeOption) return 0; // if there is no loan, the customer has nothing to pay
 
-        double totalPrice = getTotalPrice();
+        double totalPrice = getTotalPrice(); // storing total price
         double monthlyRate;
         int months;
 
-        if (getVehicle().getPrice() >= 10000) {
-            monthlyRate = 0.0425 / 12;
-            months = 48;
+        if (getVehicle().getPrice() >= 10000) { // if price is under 10k
+            monthlyRate = 0.0425 / 12;          // converts interest rate monthly
+            months = 48;                        // how long the loan lasts
         } else {
             monthlyRate = 0.0525 / 12;
             months = 24;
-        }
-
-        double balance = totalPrice;
-        double monthlyPayment = totalPrice / months;
-
-        for (int i = 0; i < months; i++) {
-            double interest = balance * monthlyRate;
-            balance = balance - monthlyPayment + interest;
         }
 
         double totalInterest = totalPrice * monthlyRate; // full amount of interest

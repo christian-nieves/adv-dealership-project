@@ -61,8 +61,9 @@ public class DealershipFileManager {
             }
 
             System.out.println("Dealership saved successfully to dealership.csv.");
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        } catch (Exception e) {
+            System.err.println("An error occurred, please try again.");
         }
     }
 
