@@ -148,8 +148,11 @@ public class UserInterface {
     public void processGetByPriceRequest() {
         System.out.print("Enter minimum price: ");
         double min = scanner.nextDouble();
+        scanner.nextLine();
+
         System.out.print("Enter maximum price: ");
         double max = scanner.nextDouble();
+        scanner.nextLine();
         List<Vehicle> vehicles = dealership.getVehiclesByPrice(min, max);
         displayVehicles(vehicles);
     }
@@ -157,6 +160,7 @@ public class UserInterface {
     public void processGetByMakeModelRequest() {
         System.out.print("Enter make: ");
         String make = scanner.nextLine();
+
         System.out.print("Enter model: ");
         String model = scanner.nextLine();
         List<Vehicle> vehicles = dealership.getVehiclesByMakeModel(make, model);
@@ -166,8 +170,12 @@ public class UserInterface {
     public void processGetByYearRequest() {
         System.out.print("Enter minimum year: ");
         int min = scanner.nextInt();
+        scanner.nextLine();
+
         System.out.print("Enter maximum year: ");
         int max = scanner.nextInt();
+        scanner.nextLine();
+
         List<Vehicle> vehicles = dealership.getVehiclesByYear(min, max);
         displayVehicles(vehicles);
     }
@@ -175,6 +183,7 @@ public class UserInterface {
     public void processGetByColorRequest() {
         System.out.print("Enter color: ");
         String color = scanner.nextLine();
+
         List<Vehicle> vehicles = dealership.getVehiclesByColor(color);
         displayVehicles(vehicles);
     }
@@ -183,9 +192,11 @@ public class UserInterface {
         System.out.print("Enter minimum mileage: ");
         int min = scanner.nextInt();
         scanner.nextLine();
+
         System.out.print("Enter maximum mileage: ");
         int max = scanner.nextInt();
         scanner.nextLine();
+
         List<Vehicle> vehicles = dealership.getVehiclesByMileage(min, max);
         displayVehicles(vehicles);
     }
@@ -193,6 +204,7 @@ public class UserInterface {
     public void processGetByVehicleTypeRequest() {
         System.out.print("Enter vehicle type: ");
         String vehicleType = scanner.nextLine();
+
         List<Vehicle> vehicles = dealership.getVehiclesByType(vehicleType);
         displayVehicles(vehicles);
     }

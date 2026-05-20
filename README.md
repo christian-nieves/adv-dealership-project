@@ -10,6 +10,7 @@ This Java console application is made for a user to search and find vehicles in 
 - As an Owner, I want to add vehicles to the dealership, so that users can see the new inventory.
 - As an Owner, I want to remove vehicles from the dealership, so that users can see the updated inventory.
 - As a Salesman, I want to sell or lease a vehicle, so that the customer can get a new car.
+- As a user, I want to see a receipt of my purchase, so that I know how much I will be paying monthly.
 
 
 ## Setup
@@ -38,17 +39,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-![Screenshot 2026-05-14 at 10.40.34 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.40.34%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.42.43 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.42.43%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.43.36 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.43.36%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.45.08 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.45.08%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.45.39 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.45.39%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.46.19 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.46.19%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.46.51 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.46.51%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.48.06 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.48.06%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.48.47 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.48.47%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.49.17 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.49.17%E2%80%AFAM.png)
-![Screenshot 2026-05-14 at 10.49.31 AM.png](Pictures/Screenshot%202026-05-14%20at%2010.49.31%E2%80%AFAM.png)
+
 
 
 ## Future Work
