@@ -48,8 +48,13 @@ public class Contract {
     }
 
     // Methods
-    public abstract double getTotalPrice();
-    public abstract double getMonthlyPayment();
+    public double getTotalPrice() {
+        return 0;
+    }
+
+    public double getMonthlyPayment() {
+        return 0;
+    }
 }
 
 

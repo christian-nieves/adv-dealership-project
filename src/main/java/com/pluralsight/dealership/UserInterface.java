@@ -26,6 +26,7 @@ public class UserInterface {
             System.out.println("7. Get all vehicles");
             System.out.println("8. Add vehicle");
             System.out.println("9. Remove vehicle");
+            System.out.println("10. Sell/Lease Vehicle"); // added new option
             System.out.println("99. Quit");
 
             System.out.print("Enter your choice: ");
@@ -59,12 +60,74 @@ public class UserInterface {
                 case "9":
                     processRemoveVehicleRequest();
                     break;
+                case "10":
+                    processSellLeaseRequest();
+                    break;
                 case "99":
                     quit = true;
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
+        }
+    }
+
+    public void processSellLeaseRequest() {
+        System.out.print("Enter vehicle vin: ");
+        int vin = scanner.nextInt();
+        scanner.nextLine();
+
+        // find the vehicle in inventory
+        Vehicle vehicle = null;
+        for (Vehicle vehicle1 : dealership.getAllVehicles()) {
+            if (vehicle1.getVin() == vin) {
+                vehicle = vehicle1; // save the found vehicle
+                break;
+            }
+        }
+
+        if (vehicle == null) { // vehicle not found
+            System.err.println("Vehicle not found."); // print error message in red
+            return;
+        }
+
+        // store customer info
+        System.out.print("Enter date (YYYYMMDD): ");
+        String date = scanner.nextLine(); // store date
+
+        System.out.print("Enter customer name: ");
+        String customerName = scanner.nextLine(); // store name
+
+        System.out.print("Enter customer email: ");
+        String customerEmail = scanner.nextLine(); // store email
+
+        // ask user if sale or lease
+        System.out.print("Sale or Lease? (S/L): ");
+        String saleOrLease = scanner.nextLine();
+
+        Contract contract = null;
+
+        if (saleOrLease.equalsIgnoreCase("S")) { // sale
+            System.out.print("Do you want to finance? (yes/no): ");
+            String financeInput = scanner.nextLine();
+            boolean financeOption = financeInput.equalsIgnoreCase("yes"); // if user inputs "yes" then they will finance the vehicle
+            contract = new SalesContract(date, customerName, customerEmail, vehicle, financeOption); // creates new sale contract
+
+        } else if (saleOrLease.equalsIgnoreCase("L")) { // lease
+            int currentYear = 2026;
+            if (currentYear - vehicle.getYear() > 3) { // check if vehicle isnt over 3 years old
+                System.err.println("Sorry, you cannot lease a vehicle over 3 years old."); // message in red alerting user they cant lease a car thats over 3 years old
+                return;
+            }
+            contract = new LeaseContract(date, customerName, customerEmail, vehicle); // creates new lease contract
+        }
+
+        if (contract != null) {
+            ContractDataManager contractDataManager = new ContractDataManager();
+            contractDataManager.saveContract(contract); // saves contract to file
+            dealership.removeVehicle(vehicle); // removes vehicle from inventory
+            new DealershipFileManager().saveDealership(dealership); // saves new inventory
+            System.out.println("Contract completed successfully!"); // alerts user all went well
         }
     }
 
@@ -105,8 +168,10 @@ public class UserInterface {
     public void processGetByMileageRequest() {
         System.out.print("Enter minimum mileage: ");
         int min = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Enter maximum mileage: ");
         int max = scanner.nextInt();
+        scanner.nextLine();
         List<Vehicle> vehicles = dealership.getVehiclesByMileage(min, max);
         displayVehicles(vehicles);
     }
@@ -163,6 +228,7 @@ public class UserInterface {
     public void processRemoveVehicleRequest() {
         System.out.print("Enter the VIN of the vehicle you wish to remove: ");
         int vin = scanner.nextInt();
+        scanner.nextLine();
 
         boolean vehicleRemoved = false;
         for (Vehicle vehicle : dealership.getAllVehicles()) {
@@ -189,6 +255,10 @@ public class UserInterface {
     }
 
     private void displayVehicles(List<Vehicle> vehicles) {
+        if (vehicles == null || vehicles.isEmpty()) {
+            System.out.println("No vehicle found. Please try again.");
+            return;
+        }
         for (Vehicle vehicle : vehicles) {
             System.out.println(vehicle.toString());
         }
